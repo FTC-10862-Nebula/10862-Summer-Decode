@@ -40,12 +40,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.UnnormalizedAngleUnit;
 import org.firstinspires.ftc.robotcore.internal.opmode.OpModeMeta;
-import org.firstinspires.ftc.teamcode.MecanumDrive;
-import org.firstinspires.ftc.teamcode.OTOSLocalizer;
-import org.firstinspires.ftc.teamcode.PinpointLocalizer;
-import org.firstinspires.ftc.teamcode.TankDrive;
-import org.firstinspires.ftc.teamcode.ThreeDeadWheelLocalizer;
-import org.firstinspires.ftc.teamcode.TwoDeadWheelLocalizer;
+import org.firstinspires.ftc.teamcode.drivetrain.MecanumDrive;
+import org.firstinspires.ftc.teamcode.roadrunner.OTOSLocalizer;
+import org.firstinspires.ftc.teamcode.roadrunner.PinpointLocalizer;
+import org.firstinspires.ftc.teamcode.drivetrain.TankDrive;
+import org.firstinspires.ftc.teamcode.drivetrain.ThreeDeadWheelLocalizer;
+import org.firstinspires.ftc.teamcode.drivetrain.TwoDeadWheelLocalizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -130,7 +130,7 @@ public final class TuningOpModes {
         DriveViewFactory dvf;
         if (DRIVE_CLASS.equals(MecanumDrive.class)) {
             dvf = hardwareMap -> {
-                MecanumDrive md = new MecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
+                MecanumDrive md = new MecanumDrive();
                 LazyImu lazyImu = md.lazyImu;
 
                 List<EncoderGroup> encoderGroups = new ArrayList<>();
