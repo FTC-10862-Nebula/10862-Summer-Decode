@@ -1,22 +1,20 @@
-package org.firstinspires.ftc.teamcode.subsytems.outtake;
-import android.nfc.tech.NfcB;
+package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
 public class Arm {
-    public NebulaServo nebulaServo;
-    private NebulaServo armR, armL;
-    Telemetry telemetry;
+    private final NebulaServo armR, armL;
+    private final Telemetry telemetry;
 
-    //2 servos
+    // 2 servos
     public Arm(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
-        nebulaServo = new NebulaServo(hw,
+        armL = new NebulaServo(hw,
                 "armL",
                 NebulaServo.Direction.Forward,
                 isEnabled);
-        nebulaServo = new NebulaServo(hw,
+        armR = new NebulaServo(hw,
                 "armR",
                 NebulaServo.Direction.Reverse,
                 isEnabled);
@@ -24,19 +22,27 @@ public class Arm {
     }
 
     public void periodic() {
-        telemetry.addData("ArmR Pos: " , getRPosition());
-        telemetry.addData("ArmLPos: ", getLPosition());
-
+        telemetry.addData("ArmR Pos: ", getRPosition());
+        telemetry.addData("ArmL Pos: ", getLPosition());
     }
+
+    // convenience for Outtake (single position)
+    public void setTargetPosition(double position) {
+        armR.setTargetPosition(position);
+        armL.setTargetPosition(position);
+    }
+
+    // for independent control
     public void setSetPoint(double rNum, double lNum) {
         armR.setPosition(rNum);
         armL.setPosition(lNum);
     }
-    public double getRPosition(){
+
+    public double getRPosition() {
         return armR.getPosition();
     }
-    public double getLPosition(){
+
+    public double getLPosition() {
         return armL.getPosition();
     }
-
 }

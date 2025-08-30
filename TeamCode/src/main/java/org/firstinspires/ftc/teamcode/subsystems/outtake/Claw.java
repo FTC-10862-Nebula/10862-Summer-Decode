@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.subsytems.outtake;
+package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 

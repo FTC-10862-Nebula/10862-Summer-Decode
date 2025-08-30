@@ -43,8 +43,8 @@ import org.firstinspires.ftc.robotcore.internal.opmode.OpModeMeta;
 import org.firstinspires.ftc.teamcode.drivetrain.MecanumDrive;
 import org.firstinspires.ftc.teamcode.roadrunner.OTOSLocalizer;
 import org.firstinspires.ftc.teamcode.roadrunner.PinpointLocalizer;
-import org.firstinspires.ftc.teamcode.drivetrain.TankDrive;
-import org.firstinspires.ftc.teamcode.drivetrain.ThreeDeadWheelLocalizer;
+import org.firstinspires.ftc.teamcode.roadrunner.TankDrive;
+import org.firstinspires.ftc.teamcode.roadrunner.ThreeDeadWheelLocalizer;
 import org.firstinspires.ftc.teamcode.drivetrain.TwoDeadWheelLocalizer;
 
 import java.util.ArrayList;

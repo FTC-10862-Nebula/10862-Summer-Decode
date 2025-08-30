@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.subsytems.intake;
+package org.firstinspires.ftc.teamcode.subsystems.intake;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -8,20 +8,21 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
 
 public class powerIntake {
-    private Telemetry tl;
-    public NebulaMotor motor;
+    private Telemetry telemetry;
+    public NebulaMotor pintake;
 
-    public powerIntake(Telemetry tl, HardwareMap hw, boolean isEnabled) {
-        motor = new NebulaMotor(hw, "pIntake",
+    public powerIntake(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+        pintake = new NebulaMotor(hw, "pIntake",
                 DcMotorSimple.Direction.FORWARD,
                 DcMotor.ZeroPowerBehavior.BRAKE,
                 isEnabled);
-        this.tl = tl;
+        this.telemetry = telemetry;
     }
 
     public void periodic() {}
-    public void setSetPoint(double power){
-        motor.setPower(power);
+
+    public void setPower(double power){
+        pintake.setPower(power);
     }
 }
 
