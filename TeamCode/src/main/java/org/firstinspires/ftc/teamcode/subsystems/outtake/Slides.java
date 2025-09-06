@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
-
+@Deprecated
 public class Slides {
     private final NebulaMotor right, left;
     private PIDFCoefficients slideCoefficients =

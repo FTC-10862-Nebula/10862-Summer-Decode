@@ -12,6 +12,8 @@ public class powerIntake {
     private final NebulaMotor pintake;
     private double currentPower = 0.0;
 
+    //Color Sensors will be added
+
     public enum Value {
         IN(1.0),
         OUT(-1.0),

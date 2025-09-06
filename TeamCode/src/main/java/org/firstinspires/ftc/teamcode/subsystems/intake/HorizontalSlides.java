@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
-
+@Deprecated
 public class HorizontalSlides {
     private final NebulaMotor rightH, leftH;
     private PIDFCoefficients slideCoefficients =

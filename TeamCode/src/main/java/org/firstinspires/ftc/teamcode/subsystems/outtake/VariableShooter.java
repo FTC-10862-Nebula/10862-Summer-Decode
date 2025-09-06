@@ -4,12 +4,12 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
-public class Arm {
+public class VariableShooter {
     private final NebulaServo armR, armL;
     private final Telemetry telemetry;
 
     // 2 servos
-    public Arm(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public VariableShooter(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         armL = new NebulaServo(hw,
                 "armL",
                 NebulaServo.Direction.Forward,
