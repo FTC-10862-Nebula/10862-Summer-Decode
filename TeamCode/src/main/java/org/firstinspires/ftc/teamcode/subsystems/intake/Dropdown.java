@@ -5,46 +5,51 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
 public class Dropdown {
-
-    private final NebulaServo dropdown;
+    private final NebulaServo dropdownL;
+    private final NebulaServo dropdownR;
     private final Telemetry telemetry;
+    private double currentPosition = 0.0;
 
     public enum Value {
         UP(0.0),
         DOWN(1.0);
 
         public final double position;
-
         Value(double position) {
             this.position = position;
         }
     }
 
     public Dropdown(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
-        dropdown = new NebulaServo(hw,
-                "drop",
-                NebulaServo.Direction.Forward,
-                isEnabled);
+        dropdownL = new NebulaServo(
+                hw, "dropL",
+                NebulaServo.Direction.Forward, isEnabled);
+
+        dropdownR = new NebulaServo(hw, "dropR",
+                NebulaServo.Direction.Reverse, isEnabled);
         this.telemetry = telemetry;
     }
 
     public void periodic() {
-        telemetry.addData("DropPos", getPivotPosition());
+        telemetry.addData("Dropdown Pos", currentPosition);
     }
 
-    public void setTargetPosition(double position) {
-        dropdown.setTargetPosition(position);
+    public void set(double position) {
+        currentPosition = position;
+        dropdownL.setTargetPosition(position);
     }
 
     public void set(Value value) {
-        dropdown.setTargetPosition(value.position);
+        set(value.position);
     }
 
-    public void setSetPoint(double rNum) {
-        dropdown.setPosition(rNum);
+    public void directSet(double rawPosition) {
+        // Bypass target logic if you want direct control
+        currentPosition = rawPosition;
+        dropdownL.setPosition(rawPosition);
     }
 
-    public double getPivotPosition() {
-        return dropdown.getPosition();
+    public double getPosition() {
+        return currentPosition;
     }
 }
