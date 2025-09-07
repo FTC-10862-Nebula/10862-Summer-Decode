@@ -1,19 +1,20 @@
-package org.firstinspires.ftc.teamcode.subsystems.intake;
+package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ArmTemplate;
+import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
-public class Dropdown extends ArmTemplate {
+//2 servos
+public class Arm extends ArmTemplate {
     private final Telemetry telemetry;
 
-    public Dropdown(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public Arm(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
                 hw,
                 telemetry,
-                "dropR",
-                "dropL",
+                "armR",
+                "armL",
                 NebulaServo.Direction.Reverse,
                 NebulaServo.Direction.Forward,
                 isEnabled
@@ -24,14 +25,13 @@ public class Dropdown extends ArmTemplate {
     @Override
     public void periodic() {
         super.periodic();
-        telemetry.addData("dropdown", "down");
-        telemetry.addData("dropdown", "up");
+        telemetry.addData("Arm", "Active");
     }
-    public void moveToDown() {
-        setTargetPosition(0);
+    public void moveToTransfer() {
+        setTargetPosition(0.2);
     }
 
-    public void moveToUp() {
-        setTargetPosition(1);
+    public void moveToScore() {
+        setTargetPosition(0.8);
     }
-   }
+}

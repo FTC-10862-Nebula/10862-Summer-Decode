@@ -6,17 +6,16 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
+import org.firstinspires.ftc.teamcode.util.templates.ActiveIntakeTemplate;
 
-public class powerIntake {
+public class powerIntake extends ActiveIntakeTemplate {
     private final Telemetry telemetry;
-    private final NebulaMotor pintake;
+    private NebulaMotor pintake;
     private double currentPower = 0.0;
 
-    //Color Sensors will be added
-
     public enum Value {
-        IN(1.0),
-        OUT(-1.0),
+        INTAKE(1.0),
+        OUTTAKE(-1.0),
         STOP(0.0);
 
         public final double power;
@@ -26,30 +25,26 @@ public class powerIntake {
     }
 
     public powerIntake(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
-        pintake = new NebulaMotor(
-                hw,
-                "pIntake",
+        super(hw, "pIntake",
                 DcMotorSimple.Direction.FORWARD,
                 DcMotor.ZeroPowerBehavior.BRAKE,
                 isEnabled
         );
         this.telemetry = telemetry;
     }
-
+    @Override
     public void periodic() {
         telemetry.addData("Intake Power", currentPower);
     }
-
-    public void setPower(double power) {
-        currentPower = power;
-        pintake.setPower(power);
+    public void intake() {
+        setPower(Value.INTAKE.power);
     }
 
-    public void setPower(Value value) {
-        setPower(value.power);
+    public void outtake() {
+        setPower(Value.OUTTAKE.power);
     }
 
-    public double getPower() {
-        return currentPower;
+    public void stop() {
+        setPower(Value.STOP.power);
     }
 }

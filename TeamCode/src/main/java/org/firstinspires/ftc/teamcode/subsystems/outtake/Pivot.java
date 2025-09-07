@@ -4,35 +4,35 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
+import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
 
-public class Pivot {
-    private NebulaServo pivot;
-    Telemetry telemetry;
+public class Pivot extends ClawTemplate {
+    public enum Value {
+        OPEN(1.0),
+        CLOSE(0.0);
 
-    public Pivot(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
-        pivot = new NebulaServo(hw,
+        public final double pos;
+        Value(double pos) {
+            this.pos = pos;
+        }
+    }
+
+    public Pivot (Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+        super(
+                hw,
+                telemetry,
                 "pivot",
                 NebulaServo.Direction.Forward,
-                isEnabled);
-        this.telemetry = telemetry;
+                isEnabled
+        );
     }
 
+    @Override
     public void periodic() {
-        telemetry.addData("pivot: ", getPivotPosition());
+        super.periodic();
     }
 
-    // Outtake
-    public void setTargetPosition(double position) {
-        pivot.setTargetPosition(position);
-    }
-
-    // here
-    public void setSetPoint(double rNum, double lNum) {
-        pivot.setPosition(rNum);
-    }
-
-    public double getPivotPosition() {
-        return pivot.getPosition();
+    public void setPosition(Pivot.Value value) {
+        setTargetPosition(value.pos);
     }
 }
-

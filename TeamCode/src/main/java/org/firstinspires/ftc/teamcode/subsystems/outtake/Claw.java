@@ -4,33 +4,36 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
+import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
 
-public class Claw {
+public class Claw extends ClawTemplate {
 
-    public enum Value{
-        OPEN(1),
-        CLOSE(0);
+    public enum Value {
+        OPEN(1.0),
+        CLOSE(0.0);
+
         public final double pos;
-        Value (double pos) {
+        Value(double pos) {
             this.pos = pos;
         }
-        Value (Value value) {
-            this.pos = value.pos;
-        }
     }
-    private final NebulaServo clawS;
-    Telemetry telemetry;
 
     public Claw(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
-        clawS = new NebulaServo(hw,
+        super(
+                hw,
+                telemetry,
                 "clawS",
                 NebulaServo.Direction.Forward,
-                isEnabled);
-        this.telemetry = telemetry;
+                isEnabled
+        );
     }
 
-    public void periodic(){}
+    @Override
+    public void periodic() {
+        super.periodic();
+    }
 
-    public void setClawS(Value value){clawS.setPosition(value.pos);}
-    public double getClawPos(){return clawS.getPosition();}
+    public void setPosition(Value value) {
+        setTargetPosition(value.pos);
+    }
 }
