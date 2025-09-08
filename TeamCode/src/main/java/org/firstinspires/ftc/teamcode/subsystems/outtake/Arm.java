@@ -11,13 +11,18 @@ public class Arm extends ArmTemplate {
 
     public Arm(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
-                hw,
-                telemetry,
-                "armR",
-                "armL",
-                NebulaServo.Direction.Reverse,
-                NebulaServo.Direction.Forward,
-                isEnabled
+                new NebulaServo[]{
+                new NebulaServo(hw,
+                        "armR",
+                        NebulaServo.Direction.Forward,
+                        isEnabled),
+
+                        new NebulaServo(hw,
+                                "armL",
+                                NebulaServo.Direction.Reverse,
+                                isEnabled)
+                },
+                telemetry
         );
         this.telemetry = telemetry;
     }
@@ -27,11 +32,11 @@ public class Arm extends ArmTemplate {
         super.periodic();
         telemetry.addData("Arm", "Active");
     }
-    public void moveToTransfer() {
-        setTargetPosition(0.2);
+    public void moveToX() {
+        setSetPoint(0.2);
     }
 
-    public void moveToScore() {
-        setTargetPosition(0.8);
+    public void moveToY() {
+        setSetPoint(0.8);
     }
 }

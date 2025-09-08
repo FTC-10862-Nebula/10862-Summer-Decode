@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
@@ -20,11 +19,13 @@ public class Claw extends ClawTemplate {
 
     public Claw(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
-                hw,
-                telemetry,
-                "clawS",
-                NebulaServo.Direction.Forward,
-                isEnabled
+                new NebulaServo[]{
+                        new NebulaServo(hw,
+                                "clawS",
+                                NebulaServo.Direction.Forward,
+                                isEnabled)
+                },
+                telemetry
         );
     }
 
@@ -34,6 +35,6 @@ public class Claw extends ClawTemplate {
     }
 
     public void setPosition(Value value) {
-        setTargetPosition(value.pos);
+        setSetPoint(value.pos);
     }
 }

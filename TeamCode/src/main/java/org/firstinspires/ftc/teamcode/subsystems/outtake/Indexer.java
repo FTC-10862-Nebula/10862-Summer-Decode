@@ -4,9 +4,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
-import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
+import org.firstinspires.ftc.teamcode.util.templates.IndexerTemplate;
 
-public class Pivot extends ClawTemplate {
+public class Indexer extends IndexerTemplate {
     public enum Value {
         OPEN(1.0),
         CLOSE(0.0);
@@ -17,11 +17,11 @@ public class Pivot extends ClawTemplate {
         }
     }
 
-    public Pivot (Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public Indexer(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
                 new NebulaServo[]{
                         new NebulaServo(hw,
-                                "pivot",
+                                "indexer",
                                 NebulaServo.Direction.Forward,
                                 isEnabled)
                 },
@@ -34,7 +34,7 @@ public class Pivot extends ClawTemplate {
         super.periodic();
     }
 
-    public void setPosition(Pivot.Value value) {
+    public void setPosition(Value value) {
         setSetPoint(value.pos);
     }
 }

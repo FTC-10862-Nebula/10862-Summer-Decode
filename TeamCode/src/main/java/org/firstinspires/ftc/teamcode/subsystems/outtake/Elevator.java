@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
+import com.arcrobotics.ftclib.controller.PIDFController;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
 import org.firstinspires.ftc.teamcode.util.templates.ElevatorTemplate;
 
 public class Elevator extends ElevatorTemplate {
@@ -12,14 +14,17 @@ public class Elevator extends ElevatorTemplate {
 
     public Elevator(HardwareMap hw, Telemetry telemetry, boolean isEnabled) {
         super(
-                hw,
+                new NebulaMotor[] {
+                        new NebulaMotor(hw, "motorRight",
+                                DcMotorSimple.Direction.FORWARD,
+                                DcMotor.ZeroPowerBehavior.BRAKE, isEnabled),
+
+                        new NebulaMotor(hw, "motorLeft",
+                                DcMotorSimple.Direction.REVERSE,
+                                DcMotor.ZeroPowerBehavior.BRAKE, isEnabled)
+                },
                 telemetry,
-                "elevatorR",
-                "elevatorL",
-                DcMotorSimple.Direction.FORWARD,
-                DcMotorSimple.Direction.REVERSE,
-                DcMotor.ZeroPowerBehavior.BRAKE,
-                isEnabled
+                new PIDFController(0, 0, 0, 0)
         );
         this.telemetry = telemetry;
     }

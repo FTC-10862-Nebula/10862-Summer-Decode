@@ -39,8 +39,8 @@ public class Outtake {
     public void setValue(Value value) {
         this.value = value;
         slides.setTargetPosition(value.slidePos);
-        arm.setTargetPosition(value.armPos);
-        pivot.setTargetPosition(value.pivotPos);
+        arm.setSetPoint(value.armPos);
+        pivot.setSetPoint(value.pivotPos);
         telemetry.addData("Outtake set to", value);
         telemetry.update();
     }

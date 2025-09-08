@@ -6,17 +6,22 @@ import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ArmTemplate;
 
 public class Dropdown extends ArmTemplate {
-    private final Telemetry telemetry;
+    private Telemetry telemetry;
 
-    public Dropdown(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public Dropdown (Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
-                hw,
-                telemetry,
-                "dropR",
-                "dropL",
-                NebulaServo.Direction.Reverse,
-                NebulaServo.Direction.Forward,
-                isEnabled
+                new NebulaServo[]{
+                        new NebulaServo(hw,
+                                "dropR",
+                                NebulaServo.Direction.Forward,
+                                isEnabled),
+
+                        new NebulaServo(hw,
+                                "dropL",
+                                NebulaServo.Direction.Reverse,
+                                isEnabled)
+                },
+                telemetry
         );
         this.telemetry = telemetry;
     }
@@ -28,10 +33,10 @@ public class Dropdown extends ArmTemplate {
         telemetry.addData("dropdown", "up");
     }
     public void moveToDown() {
-        setTargetPosition(0);
+        setSetPoint(0);
     }
 
     public void moveToUp() {
-        setTargetPosition(1);
+        setSetPoint(1);
     }
    }
