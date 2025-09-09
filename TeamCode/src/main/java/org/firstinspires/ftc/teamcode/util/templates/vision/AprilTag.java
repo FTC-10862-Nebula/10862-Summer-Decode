@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.vision;
+package org.firstinspires.ftc.teamcode.util.templates.vision;
 
 import android.util.Size;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;

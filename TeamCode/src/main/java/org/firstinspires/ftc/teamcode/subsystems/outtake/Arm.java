@@ -15,12 +15,12 @@ public class Arm extends ArmTemplate {
                 new NebulaServo(hw,
                         "armR",
                         NebulaServo.Direction.Forward,
-                        isEnabled),
+                        isEnabled, false),
 
                         new NebulaServo(hw,
                                 "armL",
                                 NebulaServo.Direction.Reverse,
-                                isEnabled)
+                                isEnabled, false)
                 },
                 telemetry
         );

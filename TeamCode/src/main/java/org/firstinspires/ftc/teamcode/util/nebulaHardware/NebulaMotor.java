@@ -32,6 +32,10 @@ public class NebulaMotor {
         if (!isEnabled) motor.setPower(0);
         else motor.setPower(power);
     }
+    public double getVelocity() {
+        if (!isEnabled) return 0;
+        return motor.getVelocity(); // reads from encoder
+    }
 
     /** Position control (RUN_TO_POSITION mode) */
     public void setTargetPosition(double ticks) {

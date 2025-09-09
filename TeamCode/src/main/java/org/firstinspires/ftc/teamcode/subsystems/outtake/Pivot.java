@@ -23,7 +23,7 @@ public class Pivot extends ClawTemplate {
                         new NebulaServo(hw,
                                 "pivot",
                                 NebulaServo.Direction.Forward,
-                                isEnabled)
+                                isEnabled, false)
                 },
                 telemetry
         );

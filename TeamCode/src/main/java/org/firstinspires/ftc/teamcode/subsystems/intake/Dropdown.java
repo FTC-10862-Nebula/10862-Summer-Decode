@@ -14,12 +14,12 @@ public class Dropdown extends ArmTemplate {
                         new NebulaServo(hw,
                                 "dropR",
                                 NebulaServo.Direction.Forward,
-                                isEnabled),
+                                isEnabled, false),
 
                         new NebulaServo(hw,
                                 "dropL",
                                 NebulaServo.Direction.Reverse,
-                                isEnabled)
+                                isEnabled, false)
                 },
                 telemetry
         );

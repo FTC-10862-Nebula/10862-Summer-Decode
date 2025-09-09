@@ -7,14 +7,15 @@ import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.IndexerTemplate;
 
 public class Indexer extends IndexerTemplate {
-    public enum Value {
-        OPEN(1.0),
-        CLOSE(0.0);
+    private NebulaServo[] servos;
 
-        public final double pos;
-        Value(double pos) {
-            this.pos = pos;
-        }
+    public enum Value {
+        FORWARD(1.0), // full forward
+        STOP(0.0),    // stop
+        REVERSE(-1.0);// full reverse
+
+        public final double speed;
+        Value(double speed) { this.speed = speed; }
     }
 
     public Indexer(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
@@ -23,7 +24,7 @@ public class Indexer extends IndexerTemplate {
                         new NebulaServo(hw,
                                 "indexer",
                                 NebulaServo.Direction.Forward,
-                                isEnabled)
+                                isEnabled, true)
                 },
                 telemetry
         );
@@ -34,7 +35,11 @@ public class Indexer extends IndexerTemplate {
         super.periodic();
     }
 
-    public void setPosition(Value value) {
-        setSetPoint(value.pos);
+    public void setSpeed(Value value) {
+        servos[0].setPosition(value.speed); // continuous servo: use speed
+    }
+
+    public double getSpeed() {
+        return servos[0].getSpeed();
     }
 }

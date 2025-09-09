@@ -17,7 +17,7 @@ public class ArmTemplate {
 
     public void periodic() {
         for (NebulaServo servo : servos) {
-            telemetry.addData("Servo Pos", servo.getPosition());
+            telemetry.addData("ArmPos", servo.getPosition());
         }
     }
     public void setSetPoint(double position) {

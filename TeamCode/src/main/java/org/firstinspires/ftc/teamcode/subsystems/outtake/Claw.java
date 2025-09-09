@@ -23,7 +23,7 @@ public class Claw extends ClawTemplate {
                         new NebulaServo(hw,
                                 "clawS",
                                 NebulaServo.Direction.Forward,
-                                isEnabled)
+                                isEnabled, false)
                 },
                 telemetry
         );

@@ -16,7 +16,7 @@ public class ClawTemplate {
 
     public void periodic() {
         for (NebulaServo servo : servos) {
-            telemetry.addData("Servo Pos", servo.getPosition());
+            telemetry.addData("Claw Pos", servo.getPosition());
         }
     }
     public void setSetPoint(double position) {

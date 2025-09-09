@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode.util.templates;
-
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
@@ -17,7 +16,7 @@ public class IndexerTemplate {
 
     public void periodic() {
         for (NebulaServo servo : servos) {
-            telemetry.addData("Servo Pos", servo.getPosition());
+            telemetry.addData("Indexer Pos", servo.getPosition());
         }
     }
     public void setSetPoint(double position) {
