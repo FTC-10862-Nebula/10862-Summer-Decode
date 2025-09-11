@@ -6,7 +6,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
 import org.firstinspires.ftc.teamcode.util.templates.ActiveIntakeTemplate;
 
-public class powerIntake extends ActiveIntakeTemplate {
+public class PowerIntake extends ActiveIntakeTemplate {
     private final Telemetry telemetry;
 
     public enum Value {
@@ -20,7 +20,7 @@ public class powerIntake extends ActiveIntakeTemplate {
         }
     }
 
-    public powerIntake(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public PowerIntake(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
          new NebulaMotor[]{ new NebulaMotor(
              hw, "pIntake",

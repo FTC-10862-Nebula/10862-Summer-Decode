@@ -1,30 +1,27 @@
 package org.firstinspires.ftc.teamcode.util.templates;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
+import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaCRServo;
 
 public class IndexerTemplate {
     private final Telemetry telemetry;
-    private final NebulaServo[] servos;
+    private final NebulaCRServo[] CRservos;
 
     public IndexerTemplate(
-            NebulaServo[] servos,
+            NebulaCRServo[] CRservos,
             Telemetry telemetry
     ) {
-        this.servos = servos;
+        this.CRservos = CRservos;
         this.telemetry = telemetry;
     }
 
     public void periodic() {
-        for (NebulaServo servo : servos) {
-            telemetry.addData("Indexer Pos", servo.getPosition());
+    }
+    public void setPower(double power) {
+        for (NebulaCRServo servo : CRservos) {
+            servo.setPower(power);
         }
     }
-    public void setSetPoint(double position) {
-        for (NebulaServo servo : servos) {
-            servo.setPosition(position);
-        }
-    }
-    public NebulaServo[] getServos() {
-        return servos;
+    public NebulaCRServo[] getServos() {
+        return CRservos;
     }
 }

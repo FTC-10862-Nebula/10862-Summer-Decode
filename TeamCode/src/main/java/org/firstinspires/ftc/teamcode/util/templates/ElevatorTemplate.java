@@ -23,8 +23,7 @@ public class ElevatorTemplate extends SubsystemBase {
     @Override
     public void periodic() {
 
-        double currentPosition = getPosition();
-        double output = pidf.calculate(currentPosition, setPoint);
+        double output = pidf.calculate(getPosition(), setPoint);
 
         for (NebulaMotor motor : motors) {
             motor.setPower(output);
@@ -47,5 +46,9 @@ public class ElevatorTemplate extends SubsystemBase {
     }
     public double getSetPoint() {
         return setPoint;
+    }
+
+    public NebulaMotor[] getMotors() {
+        return motors;
     }
 }

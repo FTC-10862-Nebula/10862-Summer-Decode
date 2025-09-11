@@ -30,4 +30,8 @@ public class ActiveIntakeTemplate extends SubsystemBase {
             motor.setPower(power);
         }
     }
+        public NebulaMotor[] getMotors(){
+            return motors;
+    }
+
 }

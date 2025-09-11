@@ -6,21 +6,21 @@ import org.firstinspires.ftc.teamcode.util.templates.ArmTemplate;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
 //2 servos
-public class Arm extends ArmTemplate {
+public class Hood extends ArmTemplate {
     private final Telemetry telemetry;
 
-    public Arm(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public Hood(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
                 new NebulaServo[]{
                 new NebulaServo(hw,
                         "armR",
                         NebulaServo.Direction.Forward,
-                        isEnabled, false),
+                        isEnabled),
 
                         new NebulaServo(hw,
                                 "armL",
                                 NebulaServo.Direction.Reverse,
-                                isEnabled, false)
+                                isEnabled)
                 },
                 telemetry
         );

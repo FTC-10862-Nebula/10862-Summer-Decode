@@ -5,21 +5,21 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ArmTemplate;
 
-public class Dropdown extends ArmTemplate {
+public class DropDown extends ArmTemplate {
     private Telemetry telemetry;
 
-    public Dropdown (Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public DropDown(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
                 new NebulaServo[]{
                         new NebulaServo(hw,
-                                "dropR",
+                                "dropRF",
                                 NebulaServo.Direction.Forward,
-                                isEnabled, false),
+                                isEnabled),
 
                         new NebulaServo(hw,
-                                "dropL",
+                                "dropLF",
                                 NebulaServo.Direction.Reverse,
-                                isEnabled, false)
+                                isEnabled)
                 },
                 telemetry
         );

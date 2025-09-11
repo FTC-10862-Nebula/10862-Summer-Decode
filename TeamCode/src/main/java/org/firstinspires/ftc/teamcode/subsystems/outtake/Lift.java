@@ -9,10 +9,10 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
 import org.firstinspires.ftc.teamcode.util.templates.ElevatorTemplate;
 
-public class Elevator extends ElevatorTemplate {
+public class Lift extends ElevatorTemplate {
     private final Telemetry telemetry;
 
-    public Elevator(HardwareMap hw, Telemetry telemetry, boolean isEnabled) {
+    public Lift(HardwareMap hw, Telemetry telemetry, boolean isEnabled) {
         super(
                 new NebulaMotor[] {
                         new NebulaMotor(hw, "motorRight",

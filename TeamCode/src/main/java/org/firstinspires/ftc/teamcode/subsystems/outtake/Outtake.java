@@ -8,7 +8,7 @@ public class Outtake {
     private Telemetry telemetry;
     private Value value;
     private final Slides slides;
-    private final Arm arm;
+    private final Hood arm;
     private final Pivot pivot;
 
     public enum Value {
@@ -25,7 +25,7 @@ public class Outtake {
         }
     }
 
-    public Outtake(Slides slides, Arm arm, Pivot pivot, Telemetry telemetry) {
+    public Outtake(Slides slides, Hood arm, Pivot pivot, Telemetry telemetry) {
         this.slides = slides;
         this.arm = arm;
         this.pivot = pivot;

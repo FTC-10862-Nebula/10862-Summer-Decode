@@ -24,7 +24,7 @@ public class Indexer extends IndexerTemplate {
                         new NebulaServo(hw,
                                 "indexer",
                                 NebulaServo.Direction.Forward,
-                                isEnabled, true)
+                                isEnabled)
                 },
                 telemetry
         );

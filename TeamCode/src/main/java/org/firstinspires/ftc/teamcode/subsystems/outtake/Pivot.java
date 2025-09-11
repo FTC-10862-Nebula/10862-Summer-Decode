@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
-
+@Deprecated
 public class Pivot extends ClawTemplate {
     public enum Value {
         OPEN(1.0),
@@ -23,7 +23,7 @@ public class Pivot extends ClawTemplate {
                         new NebulaServo(hw,
                                 "pivot",
                                 NebulaServo.Direction.Forward,
-                                isEnabled, false)
+                                isEnabled)
                 },
                 telemetry
         );

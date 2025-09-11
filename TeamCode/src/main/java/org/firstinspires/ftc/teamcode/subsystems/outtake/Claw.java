@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 import org.firstinspires.ftc.teamcode.util.templates.ClawTemplate;
-
+@Deprecated
 public class Claw extends ClawTemplate {
 
     public enum Value {
@@ -23,7 +23,7 @@ public class Claw extends ClawTemplate {
                         new NebulaServo(hw,
                                 "clawS",
                                 NebulaServo.Direction.Forward,
-                                isEnabled, false)
+                                isEnabled)
                 },
                 telemetry
         );
