@@ -6,28 +6,24 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Outtake {
     private Telemetry telemetry;
-    private Value value;
-    private final Slides slides;
-    private final Hood arm;
+    private final Shooter shooter;
     private final Pivot pivot;
 
     public enum Value {
-        START(0, 0,0),
-        HIGH(0, 0,0),
-        LOW(0, 0,0);
+        START(0, 0),
+        HIGH(0,0),
+        LOW(0, 0);
 
-        public double slidePos, armPos, pivotPos;
+        public double shooterPos, pivotPos;
 
-        Value(double slidePos, double armPos, double pivotPos) {
-            this.slidePos = slidePos;
-            this.armPos = armPos;
+        Value(double shooterPos, double pivotPos) {
+            this.shooterPos = shooterPos;
             this.pivotPos = pivotPos;
         }
     }
 
-    public Outtake(Slides slides, Hood arm, Pivot pivot, Telemetry telemetry) {
-        this.slides = slides;
-        this.arm = arm;
+    public Outtake(Shooter shooter, Pivot pivot, Telemetry telemetry) {
+        this.shooter = shooter;
         this.pivot = pivot;
         this.telemetry = telemetry;
     }
@@ -37,9 +33,7 @@ public class Outtake {
     }
 
     public void setValue(Value value) {
-        this.value = value;
-        slides.setTargetPosition(value.slidePos);
-        arm.setSetPoint(value.armPos);
+       // shooter.setVelocity(Shooter.Value);
         pivot.setSetPoint(value.pivotPos);
         telemetry.addData("Outtake set to", value);
         telemetry.update();

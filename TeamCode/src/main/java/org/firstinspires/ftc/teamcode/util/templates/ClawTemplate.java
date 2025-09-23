@@ -3,7 +3,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo;
 
 public class ClawTemplate {
-    private final Telemetry telemetry;
+    public final Telemetry telemetry;
     private final NebulaServo[] servos;
 
     public ClawTemplate(

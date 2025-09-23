@@ -26,7 +26,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-
 /*
  * This OpMode illustrates how to use the DigitalChickenLabs OctoQuad Quadrature Encoder & Pulse Width Interface Module
  *
@@ -55,7 +54,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  * See the sensor's product page: https://www.tindie.com/products/35114/
  */
 @TeleOp(name = "OctoQuad Basic", group="OctoQuad")
-@Disabled
+@Deprecated
 public class SensorOctoQuad extends LinearOpMode {
 
     // Identify which encoder OctoQuad inputs are connected to each odometry pod.
@@ -133,9 +132,9 @@ public class SensorOctoQuad extends LinearOpMode {
         //
         // Since both calls take almost the same amount of time, and the actual channels may not end up
         // being sequential, we will read all of the encoder positions, and then pick out the ones we need.
-        int[] positions = octoquad.readAllPositions();
-        posLeft  = positions[ODO_LEFT];
-        posRight = positions[ODO_RIGHT];
-        posPerp  = positions[ODO_PERP];
+     //   int[] positions = octoquad.readAllPositions();
+//        posLeft  = positions[ODO_LEFT];
+//        posRight = positions[ODO_RIGHT];
+//        posPerp  = positions[ODO_PERP];
     }
 }

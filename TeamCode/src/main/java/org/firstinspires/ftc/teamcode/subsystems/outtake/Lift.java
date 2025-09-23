@@ -11,7 +11,12 @@ import org.firstinspires.ftc.teamcode.util.templates.ElevatorTemplate;
 
 public class Lift extends ElevatorTemplate {
     private final Telemetry telemetry;
-
+    public enum Value {
+        REST(1.0),
+        EXTEND(1.0);
+        public final double pos;
+        Value(double pos)
+        { this.pos = pos; } }
     public Lift(HardwareMap hw, Telemetry telemetry, boolean isEnabled) {
         super(
                 new NebulaMotor[] {
@@ -32,14 +37,8 @@ public class Lift extends ElevatorTemplate {
     @Override
     public void periodic() {
         super.periodic();
-        telemetry.addData("Elevator", getSetPoint());
+        telemetry.addData("Lift", getSetPoint());
     }
 
-    public void moveToRest() {
-        setSetPoint(0);
-    }
-
-    public void moveToLift() {
-        setSetPoint(1000);
-    }
+    public void setPosition(Value value) { setSetPoint(value.pos); }
 }
