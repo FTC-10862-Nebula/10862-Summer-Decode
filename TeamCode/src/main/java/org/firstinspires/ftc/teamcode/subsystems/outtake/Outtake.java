@@ -11,7 +11,7 @@ public class Outtake {
 
     public enum Value {
         START(0, 0),
-        HIGH(0,0),
+        SHOOT(0,0),
         LOW(0, 0);
 
         public double shooterPos, pivotPos;

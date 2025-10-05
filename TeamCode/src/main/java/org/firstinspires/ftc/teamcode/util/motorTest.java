@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode.util;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+@TeleOp
 
 public class motorTest extends OpMode {
-    private DcMotorEx motor1;
+    private DcMotorEx motor1, motor2;
+
     /**
      * User defined init method
      * <p>
@@ -13,9 +16,10 @@ public class motorTest extends OpMode {
      */
     @Override
     public void init() {
-        motor1 = hardwareMap.get(DcMotorEx.class, "motor");
-        motor1.setDirection(DcMotorSimple.Direction.FORWARD);
-
+//        motor1 = hardwareMap.get(DcMotorEx.class, "intake");
+//        motor1.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor2 = hardwareMap.get(DcMotorEx.class, "shooter");
+        motor2.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
 
@@ -27,16 +31,18 @@ public class motorTest extends OpMode {
     @Override
     public void loop() {
         if(gamepad1.dpad_down){
-            motor1.setPower(-0.4);
+         //   motor1.setPower(-1);
+            motor2.setPower(-1);
         }
         else if(gamepad1.dpad_up){
-            motor1.setPower(0.4);
+           // motor1.setPower(1);
+            motor2.setPower(1);
         }
         else{
-            motor1.setPower(0);
+           // motor1.setPower(0);
+            motor2.setPower(0);
         }
-        telemetry.addData("Motor1: ", motor1.getCurrentPosition());
-        telemetry.update();
+        telemetry.addData("Motor2: ", motor2.getCurrentPosition());telemetry.update();
 
     }
 }

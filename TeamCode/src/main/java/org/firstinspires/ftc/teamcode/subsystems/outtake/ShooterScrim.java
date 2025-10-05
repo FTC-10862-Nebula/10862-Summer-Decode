@@ -1,19 +1,21 @@
-package org.firstinspires.ftc.teamcode.subsystems.intake;
+package org.firstinspires.ftc.teamcode.subsystems.outtake;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.subsystems.intake.PowerIntake;
 import org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaMotor;
 import org.firstinspires.ftc.teamcode.util.templates.ActiveIntakeTemplate;
 
-public class PowerIntake extends ActiveIntakeTemplate {
+public class ShooterScrim extends ActiveIntakeTemplate {
     private final Telemetry telemetry;
     private Value currentValue = Value.STOP; // default
 
     public enum Value {
-        INTAKE(1.0),
-        OUTTAKE(-1.0),
+        SHOOT(1.0),
+        INTAKE(-1.0),
         STOP(0.0);
 
         private final double power;
@@ -26,10 +28,10 @@ public class PowerIntake extends ActiveIntakeTemplate {
         }
     }
 
-    public PowerIntake(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
+    public ShooterScrim(Telemetry telemetry, HardwareMap hw, boolean isEnabled) {
         super(
                 new NebulaMotor[]{ new NebulaMotor(
-                        hw, "intake",
+                        hw, "shooter",
                         DcMotorSimple.Direction.REVERSE,
                         DcMotor.ZeroPowerBehavior.BRAKE,
                         isEnabled)},
@@ -42,7 +44,7 @@ public class PowerIntake extends ActiveIntakeTemplate {
         super.periodic();
         // actually apply the value each cycle
         setPower(currentValue.getPower());
-        telemetry.addData("Intake Mode", currentValue);
+        telemetry.addData("Shooter Mode", currentValue);
     }
 
     // instead of raw double, use your enum

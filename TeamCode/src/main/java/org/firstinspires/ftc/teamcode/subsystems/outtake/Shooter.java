@@ -12,29 +12,29 @@ import org.firstinspires.ftc.teamcode.util.templates.ShooterTemplate;
 public class Shooter extends ShooterTemplate{
 
     public enum Value {
-        SHOOT(1.0),
+        SHOOT(0.75),
         REST(0.0);
 
-        public final double velocity;
-        Value(double velocity) {
-            this.velocity = velocity;
+        public final double power;
+        Value(double power) {
+            this.power = power;
         }
     }
 public Shooter (HardwareMap hw, Telemetry telemetry, boolean isEnabled){
     super(
             new NebulaMotor[]{
-                    new NebulaMotor(hw, "shooterR",
-                            DcMotorSimple.Direction.FORWARD,
+                    new NebulaMotor(hw, "shooterN",
+                            DcMotorSimple.Direction.REVERSE,
                             DcMotor.ZeroPowerBehavior.BRAKE, isEnabled),
-                    new NebulaMotor(hw, "shooterL",
-                            DcMotorSimple.Direction.FORWARD,
-                            DcMotor.ZeroPowerBehavior.BRAKE, isEnabled)
+//                    new NebulaMotor(hw, "shooterL",
+//                            DcMotorSimple.Direction.FORWARD,
+//                            DcMotor.ZeroPowerBehavior.BRAKE, isEnabled)
             },
             telemetry,
-            new PIDFController(0,0,0,0)
+            new PIDFController(0.004,0,0,0)
         );
     }
 
-    public void setPosition(Value value) { setVelocity(value.velocity); }
+    public void setPosition(Value value) { setVelocity(value.power); }
 
 }

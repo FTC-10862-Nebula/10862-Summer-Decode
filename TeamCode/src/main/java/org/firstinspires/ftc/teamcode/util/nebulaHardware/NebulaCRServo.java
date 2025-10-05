@@ -1,4 +1,5 @@
 package org.firstinspires.ftc.teamcode.util.nebulaHardware;
+import static com.qualcomm.robotcore.hardware.Servo.Direction.REVERSE;
 import static org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo.Direction.Forward;
 import static org.firstinspires.ftc.teamcode.util.nebulaHardware.NebulaServo.Direction.Reverse;
 import com.arcrobotics.ftclib.hardware.motors.CRServo;
@@ -21,12 +22,12 @@ public class NebulaCRServo {
         servo = new CRServo(hM, deviceId);
         this.isEnabled = isEnabled;
         switch (direction) {
-            case Forward:
+            case FORWARD:
                 setInverted(false);
                 break;
-            case Reverse:
-                setInverted(true);
-                break;
+//            case Reverse:
+//                setInverted(true);
+//                break;
         }
     }
 
