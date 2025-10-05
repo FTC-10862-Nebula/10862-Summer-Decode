@@ -20,8 +20,8 @@ public class Drive extends SubsystemBase {
 
         // Motor directions
         backLeftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        frontLeftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        backRightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontLeftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        backRightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
